@@ -24,8 +24,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build . -t appstudy.azurecr.io/appstudy:latest
+          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/${{ secrets.APP_NAME }}:latest
 
       - name: Push Docker image to ACR
         run: |
-          docker push appstudy.azurecr.io/appstudy:latest
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ secrets.APP_NAME }}:latest
