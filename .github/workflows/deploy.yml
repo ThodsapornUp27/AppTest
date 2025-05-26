@@ -6,18 +6,13 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  AZURE_WEBAPP_NAME: ${{ secrets.APP_NAME }}
-  AZURE_RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
-  ACR_NAME: ${{ secrets.ACR_NAME }}
-  ACR_LOGIN_SERVER: ${{ secrets.ACR_LOGIN_SERVER }}
-  
 jobs:
 
   build:
 
     runs-on: ubuntu-latest
-
+    environment: Dev
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
