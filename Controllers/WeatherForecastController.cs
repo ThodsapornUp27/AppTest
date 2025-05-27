@@ -23,9 +23,10 @@ namespace AppTest.Controllers
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
+                VersionTest = "v1",
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = "summary :" + Summaries[Random.Shared.Next(Summaries.Length)]
+                Summary =  Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
         }
