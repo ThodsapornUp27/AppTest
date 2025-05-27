@@ -34,5 +34,11 @@ jobs:
         run: |
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ secrets.APP_NAME }}:latest
 
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.APP_NAME }}
+          images: ${{ secrets.ACR_LOGIN_SERVER }}/${{ secrets.APP_NAME }}:latest
+
       - name: Docker Logout
         run: docker logout ${{ secrets.ACR_LOGIN_SERVER }}
